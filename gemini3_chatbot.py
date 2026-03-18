@@ -31,7 +31,7 @@ def init_gemini_chatbot():
         generation_config=generation_config,
         system_instruction=
     """
-    你是一名医学AI领域的资深分析师，擅长以Markdown格式分析医学大模型相关论文。
+    你是一名资深分析师，擅长以Markdown格式分析大模型相关论文。
     分析需包含4部分：研究背景与动机、核心方法与创新点、主要实验结果与结论、个人小结与思考
 """
     )
@@ -48,10 +48,10 @@ def run_gemini_chatbot(chat):
     console.print("  - 输入「退出」结束对话。\n")
     default_paper_info = 
 """
-论文标题：面向医学大模型的体系化人工智能框架构建与应用
+论文标题：大模型的框架构建与应用
 核心内容：
-1. 研究背景：ChatGPT/GPT-4/Med-PaLM在医学领域潜力大，但算力高、标准化缺失、数据安全问题突出；
-2. 核心方法：HAI框架，包含六位一体服务闭环、知识分解原子化模型、网络原生AI、区块链安全体系；
+1. 研究背景：ChatGPT/GPT-4/Med-PaLM潜力大，但算力高、标准化缺失、数据安全问题突出；
+2. 核心方法：HAI框架，知识分解原子化模型、网络原生AI、区块链安全体系；
 3. 实验结论：理论验证有效，需实证补充；。
 """
 
@@ -69,9 +69,9 @@ def run_gemini_chatbot(chat):
                 console.print("[red]❌ 暂无可保存的分析结果，请先生成分析！[/red]")
                 continue
             # 写入MD文件
-            with open("医学论文分析_Generated_by_Gemini3.md", "w", encoding="utf-8") as f:
+            with open("论文分析_Generated_by_Gemini3.md", "w", encoding="utf-8") as f:
                 f.write(run_gemini_chatbot.last_response)
-            console.print("[green]✅ 分析结果已保存至：医学论文分析_Generated_by_Gemini3.md[/green]")
+            console.print("[green]✅ 分析结果已保存至：论文分析_Generated_by_Gemini3.md[/green]")
             continue
         
         try:
@@ -89,7 +89,7 @@ def run_gemini_chatbot(chat):
             continue
 
 if __name__ == "__main__":
-    console.print("[bold purple]🚀 启动Gemini 3 医学论文分析Chatbot[/bold purple]\n")
+    console.print("[bold purple]🚀 启动Gemini 3 论文分析Chatbot[/bold purple]\n")
     
     configure_gemini_api()
     
